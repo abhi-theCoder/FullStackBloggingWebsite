@@ -36,7 +36,6 @@ app.set('views', path.join(__dirname, './Backend/templates'));
 app.listen(PORT, () => {
     console.log(`Server is running at port: ${PORT}`);
 });
-
 // Connect to MongoDB
 connectDB();
 
