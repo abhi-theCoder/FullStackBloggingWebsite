@@ -1,0 +1,404 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy - Time Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #007073;
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #0dbdad;
+    }
+
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .navbar-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+      transition: all 0.3s;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #007073;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: flex;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #007073;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+      transition: padding 0.3s ease-in-out;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-out;
+    }
+
+    .content h2 {
+      text-align: center;
+      color: #007073;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin: 15px 0;
+    }
+
+    .content ul {
+      margin-left: 20px;
+      list-style-type: square;
+      font-size: 1.1rem;
+    }
+
+    .content ul li {
+      margin-bottom: 10px;
+    }
+
+    /* Footer Styles */
+    .footer {
+      background-color: #333;
+      color: white;
+      padding: 30px 0;
+      font-family: 'Arial', sans-serif;
+    }
+
+    .footer-container {
+      display: flex;
+      justify-content: space-between;
+      max-width: 1200px;
+      margin: 0 auto;
+      padding: 0 20px;
+      flex-wrap: wrap;
+    }
+
+    .footer-logo {
+      flex: 1;
+      text-align: left;
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+    }
+
+    .footer-logo-img {
+      width: 120px;
+      margin-bottom: 10px;
+      transition: width 0.3s ease-in-out;
+    }
+
+    .footer-tagline {
+      font-size: 1rem;
+      line-height: 1.6;
+      color: #aaa;
+      text-align: left;
+    }
+
+    .footer-links, .footer-social {
+      flex: 1;
+      margin-left: 20px;
+    }
+
+    .footer-links h4, .footer-social h4 {
+      font-size: 1.2rem;
+      color: white;
+      margin-bottom: 15px;
+    }
+
+    .footer-links ul, .footer-social ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links a, .footer-social a {
+      color: #aaa;
+      text-decoration: none;
+      font-size: 1rem;
+      margin-bottom: 10px;
+      display: block;
+      transition: color 0.3s;
+    }
+
+    .footer-links a:hover, .footer-social a:hover {
+      color: #0dbdad;
+    }
+
+    .footer-social i {
+      margin-right: 10px;
+    }
+
+    .footer-bottom {
+      text-align: center;
+      padding-top: 20px;
+      border-top: 1px solid #444;
+      margin-top: 30px;
+    }
+
+    .footer-bottom p {
+      font-size: 0.9rem;
+      color: #aaa;
+    }
+
+    /* Animation */
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .content {
+        margin: 30px;
+        padding: 15px;
+      }
+      .content h2 {
+        font-size: 1.8rem;
+      }
+      .content p, .content ul {
+        font-size: 1rem;
+      }
+
+      .footer-container {
+        flex-direction: column;
+        text-align: center;
+      }
+
+      .footer-logo {
+        align-items: center;
+        margin-bottom: 20px;
+      }
+
+      .footer-logo-img {
+        width: 100px;
+      }
+
+      .footer-tagline {
+        text-align: center;
+      }
+
+      .footer-links, .footer-social {
+        margin-left: 0;
+        margin-bottom: 20px;
+      }
+
+      .footer-bottom {
+        padding-top: 10px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .content h2 {
+        font-size: 1.5rem;
+      }
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">Time Travel</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-links" id="navbar-links">
+       <a class="nav-link" href="../INDEX/index.html">Home</a>
+     <a class="nav-link" href="../ABOUT/about.html">About Us</a>
+      <a class="nav-link" href="../CONTACT US/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Privacy Policy</h1>
+    <p>Your privacy is important to us. Please read our privacy policy carefully.</p>
+  </header>
+
+  <div class="content">
+    <h2>Introduction</h2>
+    <p>At Time Travel, we respect your privacy and are committed to protecting the personal information you share with us. This privacy policy outlines the types of information we collect and how it is used.</p>
+
+    <h2>Information We Collect</h2>
+    <ul>
+      <li><strong>Personal Information:</strong> We may collect your name, email address, and other personal details when you interact with our website.</li>
+      <li><strong>Usage Data:</strong> Information about how you use our website, including the pages you visit, the links you click, and other browsing activities.</li>
+      <li><strong>Cookies:</strong> We use cookies to enhance your experience on our site. Cookies are small files stored on your device that help us improve the website's functionality.</li>
+    </ul>
+
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect in the following ways:</p>
+    <ul>
+      <li>To provide and improve our services.</li>
+      <li>To respond to your inquiries or requests.</li>
+      <li>To personalize your experience on our website.</li>
+      <li>To send you promotional emails, if you have opted-in to receive them.</li>
+    </ul>
+
+    <h2>Data Security</h2>
+    <p>We implement a variety of security measures to protect your personal data. However, no method of transmission over the Internet is 100% secure, so we cannot guarantee absolute security.</p>
+
+    <h2>Your Rights</h2>
+    <p>You have the right to:</p>
+    <ul>
+      <li>Access your personal information.</li>
+      <li>Request corrections or deletions of your data.</li>
+      <li>Opt-out of promotional emails at any time.</li>
+    </ul>
+
+    <h2>Third-Party Links</h2>
+    <p>Our website may contain links to third-party websites. We are not responsible for the privacy practices of these external sites. Please review their privacy policies before sharing any personal information.</p>
+
+    <h2>Changes to This Privacy Policy</h2>
+    <p>We reserve the right to update or modify this privacy policy at any time. Changes will be reflected on this page with an updated date.</p>
+  </div>
+
+  <!-- Footer Section -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+        <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../ABOUT/about.html">About Us</a></li>
+          <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+          <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+          <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+          <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer-bottom">
+      <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    // Toggle navbar for mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbarLinks = document.getElementById('navbar-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

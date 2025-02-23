@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Explore breathtaking mountain destinations with Time Travel.">
+  <meta name="keywords" content="mountains, trekking, hiking, adventure travel">
+  <title>Mountain Adventures | Time Travel</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Font Awesome -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f4f7fa;
+      color: #343a40;
+    }
+
+    h1, h2, h3, h4 {
+      font-weight: bold;
+      color: #878e8f;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #1c5d5f;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-link {
+      color: #f8f9fa !important;
+    }
+
+    .navbar-nav .nav-link:hover {
+      color: #d1d1d1 !important;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(to right, #0dbdad, #1c5d5f);
+      padding: 5rem 0;
+      text-align: center;
+      color: #f8f9fa;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.5rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px 15px;
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      height: 200px;
+      border-radius: 5px;
+    }
+
+    /* Footer */
+        /* Footer Styles */
+    footer {
+      background-color: #1c5d5f;
+      color: #ffffff;
+      padding: 50px 0;
+    }
+
+    .footer-container {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: space-between;
+      align-items: flex-start;
+      max-width: 1200px;
+      margin: auto;
+      padding: 0 20px;
+    }
+
+    /* Footer Logo & Tagline */
+    .footer-logo {
+      max-width: 300px;
+    }
+
+    .footer-logo img {
+      width: 120px;
+      margin-bottom: 10px;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: #d1d1d1;
+    }
+
+    /* Footer Links */
+    .footer-links, .footer-social {
+      max-width: 250px;
+    }
+
+    .footer-links h4,
+    .footer-social h4 {
+      font-size: 18px;
+      margin-bottom: 15px;
+      color: #0dbdad;
+    }
+
+    .footer-links ul,
+    .footer-social ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .footer-links ul li,
+    .footer-social ul li {
+      margin-bottom: 8px;
+    }
+
+    .footer-links ul li a,
+    .footer-social ul li a {
+      color: #ffffff;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    .footer-links ul li a:hover,
+    .footer-social ul li a:hover {
+      color: #0dbdad;
+    }
+
+    /* Social Icons */
+    .footer-social ul li a {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .footer-social ul li a i {
+      font-size: 18px;
+    }
+
+    /* Footer Bottom */
+    .footer-bottom {
+      text-align: center;
+      margin-top: 30px;
+      font-size: 14px;
+      padding-top: 15px;
+      border-top: 1px solid rgba(255, 255, 255, 0.2);
+      color: #d1d1d1;
+    }
+
+    /* Responsive Design */
+    @media (max-width: 768px) {
+      .footer-container {
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .footer-links, .footer-social {
+        margin-top: 20px;
+      }
+    }
+
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .navbar-nav {
+        text-align: center;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .card-img-top {
+        height: 150px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="../INDEX/index.html">Time Travel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../INDEX/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../ABOUT/about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../CONTACT US/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="text-white">
+    <div class="container">
+      <h1>Mountain Adventures</h1>
+      <p class="lead">Embark on an unforgettable journey to explore breathtaking mountain destinations.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">Why Visit the Mountains?</h2>
+        <p>Mountains offer adventure, relaxation, and scenic beauty, making them perfect for travelers seeking tranquility and thrill.</p>
+        
+        <h3 class="mt-4">Top Mountain Spots</h3>
+        <ul>
+          <li><b>Himalayas:</b> Spiritual retreats and majestic peaks.</li>
+          <li><b>Rocky Mountains:</b> Hiking, skiing, and wildlife adventures.</li>
+          <li><b>Swiss Alps:</b> Picturesque views and cozy chalets.</li>
+        </ul>
+
+        <h3 class="mt-4">Activities to Try</h3>
+        <ul>
+          <li>Hiking and trekking</li>
+          <li>Camping under the stars</li>
+          <li>Photography</li>
+          <li>Wildlife exploration</li>
+        </ul>
+        <a href="/articles/Mountain">View Articles</a>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <img src="/images/Mountain.png" class="card-img-top" alt="Mountain Adventure">
+          <div class="card-body">
+            <h5 class="card-title">Quick Facts</h5>
+            <ul>
+              <li><b>Best Time:</b> Spring & Autumn</li>
+              <li><b>Duration:</b> 5-7 Days</li>
+              <li><b>Top Activity:</b> Trekking</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card-body">
+          <h5 class="card-title">More Articles</h5>
+          <ul>
+            <li><a href="../BEACH/beach.html">Beach Getaways</a></li>
+            <li><a href="../CITY ESCAPE/cescape.html">City Escapes</a></li>
+            <li><a href="valley.html">Valley Retreats</a></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="footer-container">
+      <div class="footer-logo">
+        <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+        <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+      </div>
+      
+      <div class="footer-links">
+        <h4>Quick Links</h4>
+        <ul>
+          <li><a href="../ABOUT/about.html">About Us</a></li>
+          <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+          <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+          <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+          <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+        </ul>
+      </div>
+  
+      <div class="footer-social">
+        <h4>Follow Us</h4>
+        <ul>
+          <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+          <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+          <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+        </ul>
+      </div>
+    </div>
+  
+    <div class="footer-bottom">
+      <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+</body>
+</html>

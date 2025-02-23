@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Time Travel - Beach Getaways</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+    integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+  
+  <!-- Font Awesome for Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      line-height: 1.6;
+      background-color: #f1f7f6;
+      color: #343a40;
+    }
+
+    h1, h2, h3 {
+      font-weight: bold;
+      color: #0a3d4b; /* Dark ocean blue for headings */
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      background-color: #00aaff; /* Ocean blue */
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    .navbar-nav .nav-item .nav-link {
+      color: #ffffff !important;
+    }
+
+    .navbar-nav .nav-item .nav-link:hover {
+      color: #f8f9fa !important;
+    }
+
+    /* Hero Section */
+    header {
+      background: linear-gradient(to right, #00aaff, #39a1d0); /* Ocean gradient */
+      padding: 5rem 0;
+      text-align: center;
+      color: #ffffff;
+    }
+
+    header h1 {
+      font-size: 3.5rem;
+      text-shadow: 3px 3px 6px rgba(0, 0, 0, 0.5);
+    }
+
+    header p {
+      font-size: 1.5rem;
+    }
+
+    /* Main Content */
+    main {
+      padding: 40px 15px;
+    }
+
+    .card {
+      border: none;
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+      background-color: #ffffff;
+      transition: transform 0.3s ease;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+    }
+
+    .card-img-top {
+      object-fit: cover;
+      height: 200px;
+      border-radius: 5px;
+    }
+
+    .card-body h5 {
+      color: #0a3d4b;
+    }
+
+    .card-body a {
+      color: #f99b42; /* Coral orange for links */
+    }
+
+    .card-body a:hover {
+      color: #f1f7f6;
+    }
+
+    /* Footer */
+    footer {
+      background-color: #00aaff; /* Ocean blue */
+      color: #ffffff;
+      padding: 1.5rem 0;
+    }
+
+    footer p {
+      margin: 0;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 992px) {
+      .navbar-nav {
+        text-align: center;
+      }
+
+      .hero-text {
+        font-size: 2rem;
+      }
+    }
+
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+
+      .main-content {
+        padding: 15px;
+      }
+
+      .card-img-top {
+        height: 150px;
+      }
+    }
+
+    /* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-img {
+  width: 120px;  /* Adjust size to be responsive */
+  margin-bottom: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-tagline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.footer-links, .footer-social {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.footer-links ul, .footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a, .footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+  color: #007073;
+}
+
+.footer-social i {
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;  /* Center the logo and tagline on small screens */
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-img {
+    width: 100px;  /* Smaller logo size on mobile */
+  }
+
+  .footer-tagline {
+    font-size: 14px;  /* Adjust the tagline size */
+  }
+
+  .footer-links, .footer-social {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+  </style>
+</head>
+
+<body>
+  <!-- Navbar -->
+  <nav class="navbar navbar-expand-lg navbar-dark">
+    <div class="container">
+      <a class="navbar-brand" href="../INDEX/index.html">Time Travel</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="../INDEX/index.html">Home</a></li>
+          <li class="nav-item"><a class="nav-link" href="../ABOUT/about.html">About Us</a></li>
+          <li class="nav-item"><a class="nav-link" href="../CONTACT US/contact.html">Contact</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- Hero Section -->
+  <header class="text-white">
+    <div class="container">
+      <h1>Beach Getaways</h1>
+      <p class="lead">Relax on pristine beaches, soak in the sun, and experience the serene ocean breeze with Time Travel.</p>
+    </div>
+  </header>
+
+  <!-- Main Content -->
+  <main class="container my-5">
+    <div class="row">
+      <div class="col-lg-8">
+        <h2 class="mb-4">Why Visit the Beach?</h2>
+        <p>
+          Beach getaways provide the perfect escape to unwind and refresh your mind. Whether you're strolling along the shore, relaxing under the sun, or diving into the ocean, the experience is unbeatable. Beaches are the ultimate destination for those seeking rest, adventure, and natural beauty.
+        </p>
+        <h3 class="mt-4">Top Beach Destinations</h3>
+        <ul>
+          <li><b>Bora Bora:</b> Known for its turquoise waters and luxury resorts.</li>
+          <li><b>Maui:</b> Famous for its dramatic coastline and volcanic beaches.</li>
+          <li><b>Maldives:</b> White sandy beaches and crystal-clear waters.</li>
+        </ul>
+        <p>
+          Whether you're here for relaxation or adventure, the beach offers something for everyone. Dive into the waves, build sandcastles, or just enjoy the sound of the ocean.
+        </p>
+
+        <h3 class="mt-4">Activities to Try</h3>
+        <ul>
+          <li>Snorkeling and scuba diving in clear waters.</li>
+          <li>Sunbathing on soft, golden sand.</li>
+          <li>Beach volleyball and water sports.</li>
+          <li>Watching the sunset from the shoreline.</li>
+        </ul>
+
+        <a href="/articles/Beach">View Articles</a>
+      </div>
+
+      <!-- Sidebar -->
+      <div class="col-lg-4">
+        <div class="card mb-4">
+          <img src="/images/Beach.png" class="card-img-top" alt="Beach Getaway">
+          <div class="card-body">
+            <h5 class="card-title">Quick Facts</h5>
+            <ul>
+              <li><b>Best Time to Visit:</b> Summer or Early Fall</li>
+              <li><b>Ideal Duration:</b> 3-5 Days</li>
+              <li><b>Top Activity:</b> Beach Sports</li>
+            </ul>
+          </div>
+        </div>
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">More Articles</h5>
+            <ul>
+              <li><a href="../MOUNTAIN/Mountain.html">Mountain Adventures</a></li>
+              <li><a href="../CITY ESCAPE/cescape.html">City Escapes</a></li>
+              <li><a href="valley.html">Valley Retreats</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+ <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+      <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../ABOUT/about.html">About Us</a></li>
+        <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+        <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+        <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+        <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+</body>
+
+</html>

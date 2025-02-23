@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Our Publishers - Time Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: Arial, sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f9f9f9;
+      color: #333;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #007073;
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #0dbdad;
+    }
+
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .navbar-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+      transition: all 0.3s;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #007073;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: flex;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #007073;
+      color: white;
+      text-align: center;
+      padding: 50px 20px;
+    }
+
+    header h1 {
+      margin: 0;
+      font-size: 2.5rem;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .publishers {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 30px;
+      margin: 40px 0;
+    }
+
+    .publisher-card {
+      background-color: white;
+      width: 280px;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+      text-align: center;
+      transition: transform 0.3s ease-in-out;
+    }
+
+    .publisher-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      border-radius: 10px;
+    }
+
+    .publisher-card h3 {
+      margin: 15px 0;
+      color: #007073;
+      font-size: 1.5rem;
+    }
+
+    .publisher-card p {
+      font-size: 1rem;
+      color: #666;
+      line-height: 1.5;
+    }
+
+    .publisher-card:hover {
+      transform: translateY(-10px);
+    }
+
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      margin-top: 40px;
+    }
+
+    footer a {
+      color: #0dbdad;
+      text-decoration: none;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .publisher-card {
+        width: 250px;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header {
+        padding: 30px 10px;
+      }
+      header h1 {
+        font-size: 1.8rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
+      .publishers {
+        flex-direction: column;
+        align-items: center;
+      }
+      .publisher-card {
+        width: 90%;
+      }
+    }
+
+    /* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-img {
+  width: 120px;  /* Adjust size to be responsive */
+  margin-bottom: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-tagline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.footer-links, .footer-social {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.footer-links ul, .footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a, .footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+  color: #007073;
+}
+
+.footer-social i {
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;  /* Center the logo and tagline on small screens */
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-img {
+    width: 100px;  /* Smaller logo size on mobile */
+  }
+
+  .footer-tagline {
+    font-size: 14px;  /* Adjust the tagline size */
+  }
+
+  .footer-links, .footer-social {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">Time Travel</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-links" id="navbar-links">
+      <a href="../INDEX/index.html">Home</a>
+      <a href="../ABOUT/about.html">About</a>
+      <a href="../CONTACT US/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Meet Our Publishers</h1>
+    <p>Explore the creative minds behind the stories shared on Time Travel!</p>
+  </header>
+
+  <div class="publishers">
+    <!-- Publisher Card 1 -->
+    <div class="publisher-card">
+      <img src="https://images.unsplash.com/photo-1568602471122-7832951cc4c5?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTF8fHVzZXJ8ZW58MHx8MHx8fDA%3D" alt="John Doe">
+      <h3>John Doe</h3>
+      <p>John is an avid traveler who loves exploring remote destinations. He shares his adventures, tips, and recommendations for the wanderlust community.</p>
+    </div>
+    
+    <!-- Publisher Card 2 -->
+    <div class="publisher-card">
+      <img src="https://images.unsplash.com/photo-1521061972219-a1894a27a040?q=80&w=1854&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Jane Smith">
+      <h3>Jane Smith</h3>
+      <p>Jane is a passionate food lover and travel enthusiast, exploring new cuisines around the world. Follow her journey for culinary travel stories and recommendations.</p>
+    </div>
+
+    <!-- Publisher Card 3 -->
+    <div class="publisher-card">
+      <img src="https://images.unsplash.com/photo-1580489944761-15a19d654956?q=80&w=1961&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Emily Johnson">
+      <h3>Emily Johnson</h3>
+      <p>Emily focuses on sustainable travel, sharing eco-friendly tips, green destinations, and ways to reduce your carbon footprint while traveling.</p>
+    </div>
+
+    <!-- Publisher Card 4 -->
+    <div class="publisher-card">
+      <img src="https://images.unsplash.com/photo-1528695037290-720b9ad2f242?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="Michael Lee">
+      <h3>Michael Lee</h3>
+      <p>Michael is an adventure lover, focusing on adrenaline-pumping activities like hiking, mountaineering, and rock climbing, sharing his experiences from around the globe.</p>
+    </div>
+  </div>
+<!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+      <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../ABOUT/about.html">About Us</a></li>
+        <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+        <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+        <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+        <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script>
+    // Toggle navbar for mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbarLinks = document.getElementById('navbar-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>

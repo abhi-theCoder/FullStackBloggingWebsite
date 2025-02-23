@@ -1,0 +1,394 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact Us - Time Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f0f5f5;
+      color: #333;
+    }
+    header {
+      background: linear-gradient(135deg, #007073, #0dbdad);
+      color: white;
+      text-align: center;
+      padding: 40px 20px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 2.8rem;
+      font-weight: bold;
+    }
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+    .contact-content {
+      max-width: 800px;
+      margin: 40px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 15px;
+      box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    }
+    .contact-content h2 {
+      text-align: center;
+      color: #007073;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+    .contact-form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+    .contact-form input,
+    .contact-form textarea {
+      width: 100%;
+      max-width: 600px;
+      padding: 15px;
+      margin: 0 auto;
+      border: 1px solid #ddd;
+      border-radius: 10px;
+      font-size: 1rem;
+      box-shadow: 0 3px 6px rgba(0, 0, 0, 0.05);
+      transition: border 0.3s, box-shadow 0.3s;
+    }
+    .contact-form input:focus,
+    .contact-form textarea:focus {
+      border-color: #0dbdad;
+      box-shadow: 0 4px 8px rgba(0, 128, 128, 0.2);
+      outline: none;
+    }
+    .contact-form textarea {
+      resize: none;
+    }
+    .contact-form button {
+      width: 100%;
+      max-width: 600px;
+      margin: 0 auto;
+      padding: 15px;
+      background: linear-gradient(135deg, #007073, #0dbdad);
+      color: white;
+      border: none;
+      border-radius: 10px;
+      cursor: pointer;
+      font-size: 1.2rem;
+      font-weight: bold;
+      transition: background 0.3s, transform 0.2s;
+    }
+    .contact-form button:hover {
+      background: #007073;
+      transform: translateY(-2px);
+    }
+    .contact-form button:active {
+      transform: translateY(0);
+    }
+    .contact-info {
+      margin-top: 30px;
+      text-align: center;
+    }
+    .contact-info h3 {
+      color: #007073;
+      font-size: 1.5rem;
+      margin-bottom: 10px;
+    }
+    .contact-info p {
+      font-size: 1.1rem;
+      margin: 5px 0;
+    }
+    .contact-info a {
+      color: #0dbdad;
+      text-decoration: none;
+    }
+    footer {
+      text-align: center;
+      padding: 20px;
+      background: #333;
+      color: white;
+      margin-top: 40px;
+    }
+    footer a {
+      color: #0dbdad;
+      text-decoration: none;
+    }
+
+    /* Popup Styles */
+    .popup {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: rgba(0, 0, 0, 0.5);
+      justify-content: center;
+      align-items: center;
+    }
+    .popup-content {
+      background-color: white;
+      padding: 25px;
+      border-radius: 15px;
+      text-align: center;
+      width: 280px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.2);
+    }
+    .popup button {
+      background-color: #007073;
+      color: white;
+      border: none;
+      padding: 10px 20px;
+      border-radius: 10px;
+      cursor: pointer;
+    }
+    .popup button:hover {
+      background-color: #0dbdad;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.4rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .contact-content {
+        margin: 20px;
+        padding: 15px;
+      }
+      .contact-form input,
+      .contact-form textarea {
+        max-width: 100%;
+        padding: 12px;
+      }
+      .contact-form button {
+        max-width: 100%;
+        font-size: 1rem;
+      }
+    }
+    @media (max-width: 480px) {
+      header {
+        padding: 20px 10px;
+      }
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 0.9rem;
+      }
+      .contact-content {
+        padding: 10px;
+      }
+      .contact-form button {
+        font-size: 0.9rem;
+      }
+      .popup-content {
+        width: 90%;
+      }
+    }
+
+    /* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-img {
+  width: 120px;  /* Adjust size to be responsive */
+  margin-bottom: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-tagline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.footer-links, .footer-social {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.footer-links ul, .footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a, .footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+  color: #007073;
+}
+
+.footer-social i {
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;  /* Center the logo and tagline on small screens */
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-img {
+    width: 100px;  /* Smaller logo size on mobile */
+  }
+
+  .footer-tagline {
+    font-size: 14px;  /* Adjust the tagline size */
+  }
+
+  .footer-links, .footer-social {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+
+  <header>
+    <h1>Contact Us</h1>
+    <p>We’d love to hear from you! Whether you have a question, feedback, or suggestion, feel free to reach out.</p>
+  </header>
+
+  <div class="contact-content">
+    <h2>Get In Touch</h2>
+    <form class="contact-form" id="contactForm">
+      <input type="text" name="name" id="name" placeholder="Your Name" required>
+      <input type="email" name="email" id="email" placeholder="Your Email" required>
+      <textarea name="message" id="message" rows="5" placeholder="Your Message" required></textarea>
+      <button type="submit">Send Message</button>
+    </form>
+
+    <div class="contact-info">
+      <h3>Other Ways to Contact Us</h3>
+      <p>Email: <a href="mailto:info@timetravel.com">info@timetravel.com</a></p>
+      <p>Phone: 8391977757</p>
+      <p>Address: Kolkata, 700114</p>
+    </div>
+  </div>
+
+  <div class="popup" id="popup">
+    <div class="popup-content">
+      <h3>Thank you for your message!</h3>
+      <p>Your message has been sent successfully. We'll get back to you soon.</p>
+      <button onclick="closePopup()">Close</button>
+    </div>
+  </div>
+
+ <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+      <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../ABOUT/about.html">About Us</a></li>
+        <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+        <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+        <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+        <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script>
+    function showPopup() {
+      document.getElementById("popup").style.display = "flex";
+    }
+
+    function closePopup() {
+      document.getElementById("popup").style.display = "none";
+    }
+
+    document.getElementById("contactForm").addEventListener("submit", function(event) {
+      event.preventDefault();
+      showPopup();
+      document.getElementById("contactForm").reset();
+    });
+  </script>
+
+</body>
+</html>

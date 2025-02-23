@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Edit Article</title>
+</head>
+<body>
+    <h1>Edit Article</h1>
+    <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
+        <input type="text" name="title" value="<%= article.title %>" required>
+        <textarea name="content" required><%= article.content %></textarea>
+        <button type="submit">Update</button>
+    </form>
+    <a href="/articles">Back to Articles</a>
+</body>
+</html>

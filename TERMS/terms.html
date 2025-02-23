@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Terms and Conditions - Time Travel</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
+  integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+<!-- Font Awesome for Icons -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+  <style>
+    /* General Styles */
+    body {
+      font-family: 'Arial', sans-serif;
+      margin: 0;
+      padding: 0;
+      background-color: #f4f4f4;
+      color: #333;
+      line-height: 1.6;
+    }
+
+    /* Navbar Styles */
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: #007073;
+      padding: 10px 20px;
+      color: white;
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+    }
+
+    .navbar-logo {
+      font-size: 1.5rem;
+      font-weight: bold;
+      color: white;
+      text-decoration: none;
+    }
+
+    .navbar-links {
+      display: flex;
+      gap: 20px;
+    }
+
+    .navbar-links a {
+      color: white;
+      text-decoration: none;
+      font-size: 1rem;
+      transition: color 0.3s;
+    }
+
+    .navbar-links a:hover {
+      color: #0dbdad;
+    }
+
+    .navbar-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+    }
+
+    .navbar-toggle span {
+      height: 3px;
+      width: 25px;
+      background-color: white;
+      margin: 4px 0;
+      transition: all 0.3s;
+    }
+
+    /* Responsive Navbar */
+    @media (max-width: 768px) {
+      .navbar-links {
+        display: none;
+        flex-direction: column;
+        width: 100%;
+        background-color: #007073;
+        position: absolute;
+        top: 60px;
+        left: 0;
+        padding: 10px 0;
+      }
+
+      .navbar-links.active {
+        display: flex;
+      }
+
+      .navbar-toggle {
+        display: flex;
+      }
+    }
+
+    /* Header Styles */
+    header {
+      background-color: #007073;
+      color: white;
+      text-align: center;
+      padding: 60px 20px;
+    }
+
+    header h1 {
+      font-size: 3rem;
+      margin: 0;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      margin-top: 10px;
+    }
+
+    .content {
+      max-width: 900px;
+      margin: 50px auto;
+      padding: 20px;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+      animation: slideIn 1s ease-out;
+    }
+
+    .content h2 {
+      text-align: center;
+      color: #007073;
+      font-size: 2rem;
+      margin-bottom: 20px;
+    }
+
+    .content p {
+      font-size: 1.1rem;
+      margin: 15px 0;
+    }
+
+    .content ul {
+      margin-left: 20px;
+      list-style-type: square;
+      font-size: 1.1rem;
+    }
+
+    .content ul li {
+      margin-bottom: 10px;
+    }
+
+    footer {
+      background-color: #333;
+      color: white;
+      text-align: center;
+      padding: 10px 0;
+      position: relative;
+      width: 100%;
+    }
+
+    footer p {
+      font-size: 1rem;
+      margin: 0;
+    }
+
+    footer a {
+      color: #0dbdad;
+      text-decoration: none;
+      transition: color 0.3s;
+    }
+
+    footer a:hover {
+      color: #fff;
+    }
+
+    /* Animation */
+    @keyframes slideIn {
+      0% {
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0);
+      }
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 768px) {
+      header h1 {
+        font-size: 2.5rem;
+      }
+      .content {
+        margin: 30px;
+        padding: 15px;
+      }
+      .content h2 {
+        font-size: 1.8rem;
+      }
+      .content p, .content ul {
+        font-size: 1rem;
+      }
+    }
+
+    @media (max-width: 480px) {
+      header h1 {
+        font-size: 2rem;
+      }
+      header p {
+        font-size: 1rem;
+      }
+      .content h2 {
+        font-size: 1.5rem;
+      }
+      footer {
+        font-size: 0.9rem;
+      }
+    }
+
+    /* Footer Styles */
+.footer {
+  background-color: #333;
+  color: #fff;
+  padding: 30px 0;
+  font-family: 'Arial', sans-serif;
+}
+
+.footer-container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 20px;
+  flex-wrap: wrap;
+}
+
+.footer-logo {
+  flex: 1;
+  text-align: left;
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+
+.footer-logo-img {
+  width: 120px;  /* Adjust size to be responsive */
+  margin-bottom: 10px;
+  transition: width 0.3s ease-in-out;
+}
+
+.footer-tagline {
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 1.5;
+  text-align: left;
+  transition: font-size 0.3s ease-in-out;
+}
+
+.footer-links, .footer-social {
+  flex: 1;
+  margin-left: 20px;
+}
+
+.footer-links ul, .footer-social ul {
+  list-style: none;
+  padding: 0;
+}
+
+.footer-links a, .footer-social a {
+  color: #ffffff;
+  text-decoration: none;
+  font-size: 16px;
+  margin-bottom: 10px;
+  display: block;
+  transition: color 0.3s;
+}
+
+.footer-links a:hover, .footer-social a:hover {
+  color: #007073;
+}
+
+.footer-social i {
+  margin-right: 10px;
+}
+
+.footer-bottom {
+  text-align: center;
+  padding-top: 20px;
+  border-top: 1px solid #444;
+  margin-top: 30px;
+}
+
+.footer-bottom p {
+  font-size: 14px;
+  color: #aaa;
+}
+
+@media (max-width: 768px) {
+  .footer-container {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .footer-logo {
+    align-items: center;  /* Center the logo and tagline on small screens */
+    margin-bottom: 20px;
+  }
+
+  .footer-logo-img {
+    width: 100px;  /* Smaller logo size on mobile */
+  }
+
+  .footer-tagline {
+    font-size: 14px;  /* Adjust the tagline size */
+  }
+
+  .footer-links, .footer-social {
+    margin-left: 0;
+    margin-bottom: 20px;
+  }
+
+  .footer-bottom {
+    padding-top: 10px;
+  }
+}
+
+  </style>
+</head>
+<body>
+  <!-- Navbar -->
+  <nav class="navbar">
+    <a href="#" class="navbar-logo">Time Travel</a>
+    <div class="navbar-toggle" id="mobile-menu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+    <div class="navbar-links" id="navbar-links">
+      <a href="../INDEX/index.html">Home</a>
+      <a href="../ABOUT/about.html">About</a>
+      <a href="../CONTACT US/contact.html">Contact</a>
+    </div>
+  </nav>
+
+  <header>
+    <h1>Terms and Conditions</h1>
+    <p>Please read these Terms and Conditions carefully before using our services.</p>
+  </header>
+
+  <div class="content">
+    <h2>Introduction</h2>
+    <p>Welcome to Time Travel. By accessing or using our website and services, you agree to comply with and be bound by these Terms and Conditions.</p>
+
+    <h2>1. Use of Our Services</h2>
+    <p>You may use our services only for lawful purposes and in accordance with these Terms. You agree not to use our services in any manner that could damage, disable, or impair our website or interfere with any other party's use of the services.</p>
+
+    <h2>2. Account Registration</h2>
+    <p>In order to access certain features, you may need to create an account with us. You are responsible for maintaining the confidentiality of your account information and for all activities that occur under your account.</p>
+
+    <h2>3. Intellectual Property</h2>
+    <p>All content, features, and functionality on this website, including but not limited to text, graphics, logos, and images, are owned by Time Travel and are protected by intellectual property laws. You may not use any content from the website without prior written permission.</p>
+
+    <h2>4. Privacy</h2>
+    <p>Your use of our website is also governed by our Privacy Policy. Please review our Privacy Policy to understand how we collect and use your personal information.</p>
+
+    <h2>5. Disclaimers</h2>
+    <p>We provide our services on an "as is" and "as available" basis. We do not guarantee the accuracy, completeness, or reliability of any content on our website. You use our services at your own risk.</p>
+
+    <h2>6. Limitation of Liability</h2>
+    <p>Time Travel will not be liable for any damages arising from the use or inability to use our services. This includes, but is not limited to, indirect, incidental, or consequential damages.</p>
+
+    <h2>7. Termination</h2>
+    <p>We reserve the right to suspend or terminate your access to our services if you violate any of these Terms and Conditions. You may terminate your account at any time by contacting us.</p>
+
+    <h2>8. Governing Law</h2>
+    <p>These Terms will be governed by and construed in accordance with the laws of the jurisdiction where our business is based, without regard to its conflict of law principles.</p>
+
+    <h2>9. Changes to These Terms</h2>
+    <p>We may update or change these Terms at any time. All changes will be reflected on this page with an updated date. Please check this page periodically for any updates.</p>
+  </div>
+
+ <!-- Footer Section -->
+<footer class="footer">
+  <div class="footer-container">
+    <div class="footer-logo">
+      <img src="/images/LOGO.png" alt="Leav Tours Logo" class="footer-logo-img">
+      <p class="footer-tagline">Heed the call of nature and leave it all behind.</p>
+    </div>
+    
+    <div class="footer-links">
+      <h4>Quick Links</h4>
+      <ul>
+        <li><a href="../ABOUT/about.html">About Us</a></li>
+        <li><a href="../TOUR STATUS/tstatus.html">Tour Status</a></li>
+        <li><a href="../PRIVACY/privacy.html">Privacy Policy</a></li>
+        <li><a href="../TERMS/terms.html">Terms & Conditions</a></li>
+        <li><a href="../CONTACT US/contact.html">Contact Us</a></li>
+      </ul>
+    </div>
+
+    <div class="footer-social">
+      <h4>Follow Us</h4>
+      <ul>
+        <li><a href="https://www.facebook.com/share/18HLpePRSY/" target="_blank"><i class="fab fa-facebook"></i> Facebook</a></li>
+        <li><a href="https://x.com/ThereArpan" target="_blank"><i class="fab fa-twitter"></i> Twitter</a></li>
+        <li><a href="https://www.instagram.com/im.arpan_?igsh=MTA3emg5bmVsdTYyeg==" target="_blank"><i class="fab fa-instagram"></i> Instagram</a></li>
+      </ul>
+    </div>
+  </div>
+
+  <div class="footer-bottom">
+    <p>&copy; 2025 Time Travel. All Rights Reserved.</p>
+  </div>
+</footer>
+
+
+  <script>
+    // Toggle navbar for mobile
+    const mobileMenu = document.getElementById('mobile-menu');
+    const navbarLinks = document.getElementById('navbar-links');
+
+    mobileMenu.addEventListener('click', () => {
+      navbarLinks.classList.toggle('active');
+    });
+  </script>
+</body>
+</html>
