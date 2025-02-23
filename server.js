@@ -186,7 +186,7 @@ app.get('/articles/:articleName', async (req, res) => {
         let articles = await Article.find({ type: articleName })
             .populate("user", "first_Name email");
 
-        res.render('articles.ejs', { user: req.session.user || null, articles });
+        res.render('abc.ejs', { user: req.session.user || null, articles });
     } catch (error) {
         console.error("Error fetching articles:", error);
         res.status(500).send("Error fetching articles");
