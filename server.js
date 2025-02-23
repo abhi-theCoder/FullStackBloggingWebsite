@@ -46,7 +46,7 @@ app.get('/', (req, res) => {
 
 app.get('/INDEX/index.html', (req, res) => res.redirect('/'));
 app.get('/PUBLISHER/publisher.html', (req, res) => res.sendFile(path.join(__dirname, 'PUBLISHER', 'publisher.html')));
-app.get('/CONTACT%20US/contact.html', (req, res) => res.sendFile(path.join(__dirname, 'contact us', 'contact.html')));
+app.get('/CONTACT%20US/contact.html', (req, res) => res.sendFile(path.join(__dirname, 'CONTACT US', 'contact.html')));
 app.get('/ABOUT/about.html', (req, res) => res.sendFile(path.join(__dirname, 'ABOUT', 'about.html')));
 // app.get('/PUBLISH/publish-article.html', (req, res) => res.sendFile(path.join(__dirname, 'publish', 'publish-article.html')));
 app.get('/BEACH/beach.html', (req, res) => res.sendFile(path.join(__dirname, 'BEACH', 'beach.html')));
