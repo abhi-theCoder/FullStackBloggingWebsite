@@ -25,7 +25,7 @@ app.use(session({
 }));
 
 // Static files
-app.use(express.static(path.join(__dirname, 'index')));
+app.use(express.static(path.join(__dirname, 'INDEX')));
 app.use(express.static(path.join(__dirname, 'PUBLIC'))); 
 
 // Set EJS as the view engine
@@ -42,7 +42,7 @@ connectDB();
 
 // Routes
 app.get('/', (req, res) => {
-    res.sendFile(path.join(__dirname, 'index', 'index.html'));
+    res.sendFile(path.join(__dirname, 'INDEX', 'index.html'));
 });
 
 app.get('/INDEX/index.html', (req, res) => res.redirect('/'));
