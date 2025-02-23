@@ -92,6 +92,25 @@
       color: #f8f9fa;
     }
 
+    .view-articles-btn {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #b8860b, #ffd700); /* Gold gradient */
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+  
+    .view-articles-btn:hover {
+      background: linear-gradient(45deg, #ffd700, #b8860b); /* Reverse on hover */
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+
     /* Footer */
     footer {
       background-color: #343a40; /* City gray */
@@ -289,11 +308,10 @@
           <li>Shop at cutting-edge fashion districts and boutiques.</li>
           <li>Attend live performances and art exhibitions.</li>
         </ul>
-        <a href="/articles/City Escapes">View Articles</a>
+        <a href="/articles/City Escapes" class="view-articles-btn" >View Articles →</a>
+        <br><br>
       </div>
       
-
-
       <!-- Sidebar -->
       <div class="col-lg-4">
         <div class="card mb-4">

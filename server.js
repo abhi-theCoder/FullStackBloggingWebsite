@@ -61,9 +61,13 @@ app.get('/login-register', (req, res) => res.sendFile(path.join(__dirname, 'INDE
 
 app.post('/register', async (req, res) => {  
     try {
-        const { first_Name, last_Name, email, password, role } = req.body;
-        
-        const existingUser = await User.findOne({ email });
+        const { first_Name, last_Name, email, password, role, security_code } = req.body;
+        // Check if security code is correct
+        if (security_code !== process.env.SECURITY_CODE) { 
+            return res.status(400).json({ message: "Security code is incorrect" });
+        }
+
+        const existingUser = await User.findOne({ email }); 
         if (existingUser) return res.status(400).json({ error: 'Email already exists' });
 
         const hashedPassword = await bcrypt.hash(password, 10);
@@ -87,7 +91,7 @@ app.post('/login', async (req, res) => {
         }
 
         req.session.user = { _id: user._id, email: user.email, first_Name: user.first_Name, role: user.role  };
-        console.log('Login successful');
+        // console.log('Login successful');
         res.redirect('/articles');
     } catch (error) {
         res.status(500).json({ error: 'Error logging in' });
@@ -151,7 +155,7 @@ app.get('/articles/edit/:id', async (req, res) => {
     try {
         const article = await Article.findById(req.params.id);
         if ((req.session.user.role !== 'admin') && (!article || article.user.toString() !== req.session.user._id.toString())) {
-            console.log(req.session.user.role);
+            // console.log(req.session.user.role);
             console.log(req.session.user.role !== 'admin');
             
             return res.status(403).send("Unauthorized");

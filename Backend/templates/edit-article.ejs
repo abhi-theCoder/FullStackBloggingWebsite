@@ -4,14 +4,31 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Edit Article</title>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <h1>Edit Article</h1>
-    <form action="/articles/<%= article._id %>?_method=PUT" method="POST">
-        <input type="text" name="title" value="<%= article.title %>" required>
-        <textarea name="content" required><%= article.content %></textarea>
-        <button type="submit">Update</button>
-    </form>
-    <a href="/articles">Back to Articles</a>
+<body class="bg-gradient-to-r from-indigo-400 via-purple-400 to-pink-400 min-h-screen flex items-center justify-center">
+    <div class="bg-white p-8 rounded-2xl shadow-lg max-w-lg w-full">
+        <h1 class="text-2xl font-bold text-gray-800 text-center mb-6">Edit Article</h1>
+        <form action="/articles/<%= article._id %>?_method=PUT" method="POST" class="space-y-4">
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Title</label>
+                <input type="text" name="title" value="<%= article.title %>" required 
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 bg-gray-50">
+            </div>
+            <div>
+                <label class="block text-gray-700 font-medium mb-1">Content</label>
+                <textarea name="content" required 
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-purple-300 h-40 bg-gray-50"><%= article.content %></textarea>
+            </div>
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-purple-400 to-pink-400 text-white font-bold py-3 rounded-lg hover:shadow-lg hover:brightness-110 transition-all duration-300">
+                Update Article
+            </button>
+        </form>
+        <div class="mt-4 text-center">
+            <a href="/articles" 
+                class="text-purple-500 font-medium hover:underline">← Back to Articles</a>
+        </div>
+    </div>
 </body>
 </html>

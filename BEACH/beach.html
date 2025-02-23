@@ -91,6 +91,26 @@
       color: #f1f7f6;
     }
 
+    .view-articles-btn {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: #d88b25; /* Cyan shade */
+      padding: 12px 24px;
+      border-radius: 30px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(13, 189, 173, 0.3);
+      border: none;
+    }
+  
+    .view-articles-btn:hover {
+      background: #dd6728; /* Darker cyan */
+      transform: scale(1.05);
+      box-shadow: 0 6px 12px rgba(13, 189, 173, 0.4);
+    }
+    
     /* Footer */
     footer {
       background-color: #00aaff; /* Ocean blue */
@@ -289,7 +309,8 @@
           <li>Watching the sunset from the shoreline.</li>
         </ul>
 
-        <a href="/articles/Beach">View Articles</a>
+        <a href="/articles/Beach" class="view-articles-btn" >View Articles →</a>
+        <br><br>
       </div>
 
       <!-- Sidebar -->

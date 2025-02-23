@@ -4,31 +4,39 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login & Register</title>
-    <style>
-        body { font-family: Arial, sans-serif; display: flex; justify-content: center; align-items: center; height: 100vh; background: #f4f4f4; }
-        .container { width: 300px; padding: 20px; background: white; box-shadow: 0px 0px 10px rgba(0,0,0,0.1); border-radius: 8px; }
-        h2 { text-align: center; }
-        input, select, button { width: 100%; padding: 10px; margin: 10px 0; border: 1px solid #ddd; border-radius: 5px; }
-        button { background: #28a745; color: white; border: none; cursor: pointer; }
-        button:hover { background: #218838; }
-        .switch { text-align: center; cursor: pointer; color: blue; }
-    </style>
+    <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body>
-    <div class="container" id="form-container">
-        <h2 id="form-title">Register</h2>
-        <form id="auth-form" action="/register" method="POST">
-            <input type="text" id="first_Name" name="first_Name" placeholder="First Name" required>
-            <input type="text" id="last_Name" name="last_Name" placeholder="Last Name" required>
-            <input type="email" id="email" name="email" placeholder="Email" required>
-            <input type="password" id="password" name="password" placeholder="Password" required>
-            <select id="role" name="role">
+<body class="flex items-center justify-center min-h-screen bg-gradient-to-r from-indigo-300 via-purple-300 to-pink-300">
+    <div class="bg-white p-8 rounded-xl shadow-lg max-w-md w-full">
+        <h2 id="form-title" class="text-2xl font-bold text-center text-gray-800 mb-6">Register</h2>
+        <form id="auth-form" action="/register" method="POST" class="space-y-4">
+            <div id="name-fields" class="flex space-x-4">
+                <input type="text" id="first_Name" name="first_Name" placeholder="First Name" required 
+                    class="w-1/2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
+                <input type="text" id="last_Name" name="last_Name" placeholder="Last Name" required 
+                    class="w-1/2 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
+            </div>
+            <input type="email" id="email" name="email" placeholder="Email" required 
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
+            <input type="password" id="password" name="password" placeholder="Password" required 
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
+            <select id="role" name="role" onchange="toggleSecurityCode()"
+                class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
                 <option value="user">User</option>
                 <option value="admin">Admin</option>
             </select>
-            <button type="submit">Submit</button>
+            <div id="security-code-field" class="hidden">
+                <input type="text" id="security_code" name="security_code" placeholder="Security Code (Admin Only)" 
+                    class="w-full p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-purple-400 bg-gray-50">
+            </div>
+            <button type="submit" 
+                class="w-full bg-gradient-to-r from-purple-500 to-pink-500 text-white font-bold py-3 rounded-lg hover:shadow-lg transition-all duration-300">
+                Submit
+            </button>
         </form>
-        <p class="switch" onclick="toggleForm()">Already have an account? Login</p>
+        <p class="text-center text-purple-600 font-medium hover:underline cursor-pointer mt-4" onclick="toggleForm()" id="switch-text">
+            Already have an account? Login
+        </p>
     </div>
 
     <script>
@@ -39,19 +47,22 @@
             document.getElementById('form-title').innerText = isLogin ? 'Login' : 'Register';
             document.getElementById('auth-form').action = isLogin ? '/login' : '/register';
 
-            // Get fields
             const firstName = document.getElementById('first_Name');
             const lastName = document.getElementById('last_Name');
             const role = document.getElementById('role');
+            const securityCodeField = document.getElementById('security-code-field');
 
-            // Hide fields and remove required attribute in login mode
             if (isLogin) {
                 firstName.style.display = 'none';
                 lastName.style.display = 'none';
                 role.style.display = 'none';
+                securityCodeField.classList.add('hidden'); // Hide security code field
 
                 firstName.removeAttribute('required');
                 lastName.removeAttribute('required');
+
+                // Reset role to 'User' when switching to Login
+                role.value = 'user';
             } else {
                 firstName.style.display = 'block';
                 lastName.style.display = 'block';
@@ -61,7 +72,23 @@
                 lastName.setAttribute('required', 'true');
             }
 
-            document.querySelector('.switch').innerText = isLogin ? "Don't have an account? Register" : "Already have an account? Login";
+            // Call toggleSecurityCode when switching back to Register
+            toggleSecurityCode();
+
+            document.getElementById('switch-text').innerText = isLogin ? "Don't have an account? Register" : "Already have an account? Login";
+        }
+
+        function toggleSecurityCode() {
+            const role = document.getElementById('role').value;
+            const securityCodeField = document.getElementById('security-code-field');
+
+            if (role === 'admin') {
+                securityCodeField.classList.remove('hidden');
+                document.getElementById('security_code').setAttribute('required', 'true');
+            } else {
+                securityCodeField.classList.add('hidden');
+                document.getElementById('security_code').removeAttribute('required');
+            }
         }
     </script>
 </body>

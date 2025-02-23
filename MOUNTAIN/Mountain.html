@@ -82,10 +82,56 @@
       border-radius: 5px;
     }
 
+    .sidebar-card {
+      background-color: #ffffff;
+      padding: 15px;
+      border-radius: 8px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+  
+    .sidebar-card h5 {
+      color: #1c5d5f;
+      font-weight: bold;
+    }
+  
+    .sidebar-card ul {
+      padding-left: 20px;
+    }
+  
+    .sidebar-card ul li a {
+      text-decoration: none;
+      color: #0dbdad;
+      transition: color 0.3s ease-in-out;
+    }
+  
+    .sidebar-card ul li a:hover {
+      color: #1c5d5f;
+      text-decoration: underline;
+    }
+
+    .view-articles-btn {
+      display: inline-block;
+      font-size: 1rem;
+      font-weight: bold;
+      color: #fff;
+      background: linear-gradient(45deg, #ff7f50, #ff4500); /* Coral to Deep Orange */
+      padding: 10px 20px;
+      border-radius: 25px;
+      text-decoration: none;
+      transition: all 0.3s ease-in-out;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2);
+    }
+  
+    .view-articles-btn:hover {
+      background: linear-gradient(45deg, #ff4500, #ff7f50);
+      transform: translateY(-3px);
+      box-shadow: 0 6px 12px rgba(0, 0, 0, 0.3);
+    }
+    
     /* Footer */
-        /* Footer Styles */
+    /* Footer Styles */
     footer {
-      background-color: #1c5d5f;
+      background-color: #333;
       color: #ffffff;
       padding: 50px 0;
     }
@@ -124,7 +170,7 @@
     .footer-social h4 {
       font-size: 18px;
       margin-bottom: 15px;
-      color: #0dbdad;
+      color: #ffffff;
     }
 
     .footer-links ul,
@@ -253,12 +299,15 @@
           <li>Photography</li>
           <li>Wildlife exploration</li>
         </ul>
-        <a href="/articles/Mountain">View Articles</a>
+        <a href="/articles/Mountain" class="view-articles-btn">View Articles →</a>
+        
+        <br><br>
+
       </div>
 
       <!-- Sidebar -->
       <div class="col-lg-4">
-        <div class="card mb-4">
+        <div class="card mb-4 sidebar-card">
           <img src="/images/Mountain.png" class="card-img-top" alt="Mountain Adventure">
           <div class="card-body">
             <h5 class="card-title">Quick Facts</h5>
@@ -269,7 +318,8 @@
             </ul>
           </div>
         </div>
-        <div class="card-body">
+        
+        <div class="card-body sidebar-card">
           <h5 class="card-title">More Articles</h5>
           <ul>
             <li><a href="../BEACH/beach.html">Beach Getaways</a></li>
@@ -278,7 +328,7 @@
           </ul>
         </div>
       </div>
-    </div>
+      
   </main>
 
   <!-- Footer -->
