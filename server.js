@@ -191,4 +191,4 @@ app.get('/articles/:articleName', async (req, res) => {
         console.error("Error fetching articles:", error);
         res.status(500).send("Error fetching articles");
     }
-}); 
+});
