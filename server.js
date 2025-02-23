@@ -45,19 +45,19 @@ app.get('/', (req, res) => {
 });
 
 app.get('/INDEX/index.html', (req, res) => res.redirect('/'));
-app.get('/publisher/publisher.html', (req, res) => res.sendFile(path.join(__dirname, 'publisher', 'publisher.html')));
+app.get('/PUBLISHER/publisher.html', (req, res) => res.sendFile(path.join(__dirname, 'PUBLISHER', 'publisher.html')));
 app.get('/CONTACT%20US/contact.html', (req, res) => res.sendFile(path.join(__dirname, 'contact us', 'contact.html')));
-app.get('/about/about.html', (req, res) => res.sendFile(path.join(__dirname, 'about', 'about.html')));
-app.get('/publish/publish-article.html', (req, res) => res.sendFile(path.join(__dirname, 'publish', 'publish-article.html')));
-app.get('/beach/beach.html', (req, res) => res.sendFile(path.join(__dirname, 'beach', 'beach.html')));
+app.get('/ABOUT/about.html', (req, res) => res.sendFile(path.join(__dirname, 'ABOUT', 'about.html')));
+// app.get('/PUBLISH/publish-article.html', (req, res) => res.sendFile(path.join(__dirname, 'publish', 'publish-article.html')));
+app.get('/BEACH/beach.html', (req, res) => res.sendFile(path.join(__dirname, 'BEACH', 'beach.html')));
 app.get('/CITY%20ESCAPE/cescape.html', (req, res) => res.sendFile(path.join(__dirname, 'CITY ESCAPE', 'cescape.html')));
-app.get('/mountain/mountain.html', (req, res) => res.sendFile(path.join(__dirname, 'mountain', 'mountain.html')));
+app.get('/MOUNTAIN/mountain.html', (req, res) => res.sendFile(path.join(__dirname, 'MOUNTAIN', 'mountain.html')));
 app.get('/TOUR%20STATUS/tstatus.html', (req, res) => res.sendFile(path.join(__dirname, 'TOUR STATUS', 'tstatus.html')));
-app.get('/privacy/privacy.html', (req, res) => res.sendFile(path.join(__dirname, 'privacy', 'privacy.html')));
-app.get('/terms/terms.html', (req, res) => res.sendFile(path.join(__dirname, 'terms', 'terms.html')));
+app.get('/PRIVACY/privacy.html', (req, res) => res.sendFile(path.join(__dirname, 'PRIVACY', 'privacy.html')));
+app.get('/TERMS/terms.html', (req, res) => res.sendFile(path.join(__dirname, 'TERMS', 'terms.html')));
 
 // Register & Login
-app.get('/login-register', (req, res) => res.sendFile(path.join(__dirname, 'index', 'login-register.html')));
+app.get('/login-register', (req, res) => res.sendFile(path.join(__dirname, 'INDEX', 'login-register.html')));
 
 app.post('/register', async (req, res) => {  
     try {
