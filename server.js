@@ -62,8 +62,9 @@ app.get('/login-register', (req, res) => res.sendFile(path.join(__dirname, 'INDE
 app.post('/register', async (req, res) => {  
     try {
         const { first_Name, last_Name, email, password, role, security_code } = req.body;
+        console.log(security_code);
         // Check if security code is correct
-        if (security_code !== process.env.SECURITY_CODE) { 
+        if (security_code!=='' && security_code !== process.env.SECURITY_CODE) { 
             return res.status(400).json({ message: "Security code is incorrect" });
         }
 
@@ -73,7 +74,7 @@ app.post('/register', async (req, res) => {
         const hashedPassword = await bcrypt.hash(password, 10);
         const newUser = new User({ first_Name, last_Name, email, password: hashedPassword, role });
 
-        await newUser.save();
+        await newUser.save(); 
         res.json({ message: 'User registered successfully' });
     } catch (error) {
         console.error(error);
