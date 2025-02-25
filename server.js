@@ -48,7 +48,6 @@ app.get('/INDEX/index.html', (req, res) => res.redirect('/'));
 app.get('/PUBLISHER/publisher.html', (req, res) => res.sendFile(path.join(__dirname, 'PUBLISHER', 'publisher.html')));
 app.get('/CONTACT%20US/contact.html', (req, res) => res.sendFile(path.join(__dirname, 'CONTACT US', 'contact.html')));
 app.get('/ABOUT/about.html', (req, res) => res.sendFile(path.join(__dirname, 'ABOUT', 'about.html')));
-// app.get('/PUBLISH/publish-article.html', (req, res) => res.sendFile(path.join(__dirname, 'publish', 'publish-article.html')));
 app.get('/BEACH/beach.html', (req, res) => res.sendFile(path.join(__dirname, 'BEACH', 'beach.html')));
 app.get('/CITY%20ESCAPE/cescape.html', (req, res) => res.sendFile(path.join(__dirname, 'CITY ESCAPE', 'cescape.html')));
 app.get('/MOUNTAIN/mountain.html', (req, res) => res.sendFile(path.join(__dirname, 'MOUNTAIN', 'Mountain.html')));
@@ -62,9 +61,8 @@ app.get('/login-register', (req, res) => res.sendFile(path.join(__dirname, 'INDE
 app.post('/register', async (req, res) => {  
     try {
         const { first_Name, last_Name, email, password, role, security_code } = req.body;
-        console.log(security_code);
         // Check if security code is correct
-        if (security_code!=='' && security_code !== process.env.SECURITY_CODE) { 
+        if (role=='admin' && security_code !== process.env.SECURITY_CODE) { 
             return res.status(400).json({ message: "Security code is incorrect" });
         }
 
@@ -92,7 +90,6 @@ app.post('/login', async (req, res) => {
         }
 
         req.session.user = { _id: user._id, email: user.email, first_Name: user.first_Name, role: user.role  };
-        // console.log('Login successful');
         res.redirect('/articles');
     } catch (error) {
         res.status(500).json({ error: 'Error logging in' });
@@ -125,7 +122,6 @@ app.post('/articles', async (req, res) => {
         const newArticle = new Article({ title, content, type, user: req.session.user._id });
         await newArticle.save();
         res.redirect('/articles');
-        // res.json({ message: 'Article created successfully', article: newArticle });
     } catch (error) {
         res.status(500).json({ error: 'Error creating article' });
     }
@@ -143,7 +139,6 @@ app.put('/articles/:id', async (req, res) => {
         article.title = req.body.title;
         article.content = req.body.content;
         await article.save();
-        // res.json({ message: 'Article updated successfully', article });
         res.redirect('/articles');
     } catch (error) {
         res.status(500).json({ error: 'Error updating article' });
@@ -156,7 +151,6 @@ app.get('/articles/edit/:id', async (req, res) => {
     try {
         const article = await Article.findById(req.params.id);
         if ((req.session.user.role !== 'admin') && (!article || article.user.toString() !== req.session.user._id.toString())) {
-            // console.log(req.session.user.role);
             console.log(req.session.user.role !== 'admin');
             
             return res.status(403).send("Unauthorized");
@@ -173,7 +167,6 @@ app.delete('/articles/:id', async (req, res) => {
 
     try {
         await Article.findByIdAndDelete(req.params.id);
-        // res.json({ message: 'Article deleted successfully' });
         res.redirect('/articles');
     } catch (error) {
         res.status(500).json({ error: 'Error deleting article' });
